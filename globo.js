@@ -5,8 +5,9 @@ function iniciar () {
   document.getElementById("btnSeguir").addEventListener("click", DejarSeguir)
   document.getElementById("btnMeGusta").addEventListener("click", Likes)
   document.getElementById("btnComentar").addEventListener("click", AgregarComentario)
-  
+  document.getElementById("btnEliminar").addEventListener("click", eliminarComentario)
 }
+
 function DejarSeguir() {
 
   let indicacion = document.getElementById("btnSeguir").innerText;
@@ -25,13 +26,13 @@ function Likes () {
   let likes = document.getElementById("btnMeGusta").innerText;
 
   if(likes == "Me Gusta"){
-    document.getElementById("btnMeGusta").innerHTML = "No me gusta"
+    document.getElementById("btnMeGusta").innerHTML = '<b>' + "No me gusta" + '<b>'
     let num = document.getElementById("likes").innerText;
     let conteo = Number(num) + 1;
     document.getElementById("likes").innerHTML = conteo;
   }
   else{
-    document.getElementById("btnMeGusta").innerHTML = "Me Gusta"
+    document.getElementById("btnMeGusta").innerHTML = '<b>' + "Me Gusta" + '<b>'
     let num = document.getElementById("likes").innerText;
     let conteo = Number(num) - 1;
     document.getElementById("likes").innerHTML = conteo;
@@ -50,17 +51,17 @@ function AgregarComentario(evento) {
 
       document.getElementById("aviso").style.color = "red";
 
-      if(comentario === '' && usuario === ''){
+      if(comentario.trim() === '' && usuario.trim() === ''){
         document.getElementById('aviso').innerHTML = "";
         document.getElementById('aviso').innerHTML = "¡¡Ingrese usuario y comentario!!";
         return
       }
-      if(comentario === ''){
+      if(comentario.trim() === ''){
         document.getElementById('aviso').innerHTML = "";
         document.getElementById('aviso').innerHTML = "¡¡Ingrese un comentario!!";
               
       }
-      if(usuario === ''){
+      if(usuario.trim() === ''){
         document.getElementById('aviso').innerHTML = "";
         document.getElementById('aviso').innerHTML = "¡¡Ingrese un usuario!!";
            
@@ -69,29 +70,32 @@ function AgregarComentario(evento) {
     }
 
     document.getElementById('aviso').innerHTML = "";
-    let text = document.createTextNode (usuario + " " + comentario);
 
-    let lista = document.createElement('p');
-    lista.appendChild(text);
+    const text = document.createElement('p');
+    text.innerHTML = '<b>' + usuario + '</b>' + " " + comentario;
 
-    document.getElementById('listado').appendChild(lista);
+    document.getElementById('listado').appendChild(text);
     document.getElementById("txtComentario").value= "";
 
     
     let lista1 = document.createElement('p');
 
     lista1.appendChild(newButton)
-    document.getElementById('eliminar').appendChild(lista1);
+    document.getElementById('btnEliminar').appendChild(lista1);
 
     newButton.innerHTML = "Eliminar";
     newButton.style.color = "red";
     newButton.style.backgroundColor = rgb(209, 208, 216);
+    newButton.style.border = "none";
+    newButton.style.borderRadius = "0.3vw";
+    newButton.style.fontWeight=  "bold"
+    newButton.style.width = "6vw"
+    newButton.style.height = "2vw"
        
 }
 let newButton = document.createElement("button");
 
 function eliminarComentario() {
-  document.querySelector("listado");
   listado.innerHTML = "";
   newButton.remove();
 
