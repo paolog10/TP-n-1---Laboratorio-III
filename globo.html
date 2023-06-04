@@ -7,47 +7,49 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
     <link href= "globo.css" rel="stylesheet">
-    <script src = "globo.js" ></script>
+
+    <!-- Import Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 	</head>
  
   <body>
-    <script src = "globo.js" ></script>
+    <div id="app">
 
-    <div id="grid-layout-contenedor">
+      <div id="grid-layout-contenedor">
 
-      <div id="caja1" > 
-        <img class ="logo" src = "imagenes/undefined - Imgur.png">
-        <form>
-        <input class= "CajaUsuario" id="txtUsuario" type="text" placeholder="Ingresa tu usuario..." required>
-        </form>
-      </div>
+        <div id="caja1" > 
+          <img class ="logo" src = "imagenes/undefined - Imgur.png">
+          <form>
+          <input class= "CajaUsuario" id="txtUsuario" type="text" placeholder="Ingresa tu usuario..." required>
+          </form>
+        </div>
 
-      <div id="caja2" class= "fondoContenedor">
-        <div id="grid-layout-cuerpo">
+        <div id="caja2" class= "fondoContenedor">
+          <div id="grid-layout-cuerpo">
 
-          <div id="C1" class="fondoCuerpo">
-            <div id="grid-layout-perfil">
+            <div id="C1" class="fondoCuerpo">
+              <div id="grid-layout-perfil">
 
-              <div id="n1">
-                <img class= "foto1" src="imagenes/99qgQJy - Imgur.jpg" alt="Foto de perfil">
-              </div>
-                    
-              <div id="n2">
-              <h1> <b> Jane Doe </b></h1>
-              <p><b>Email:</b> jane_doe@email.com </p>
-              <p><b>Fecha de nacimiento:</b> 01/05/1996 </p>
-              <p><b>Teléfono:</b> 918-936-9585 </p>
-              <p><b>Ciudad:</b> Tokyo, Japón </p>
-              <p> Trabajando en <b>Lawn N</b></p>
-              </div>
-        
-              <div id="n3">
-                <button class = "botonColor" id="btnSeguir" type="submit"> Seguir </button>
+                <div id="n1">
+                  <img class= "foto1" src="imagenes/99qgQJy - Imgur.jpg" alt="Foto de perfil">
+                </div>
+                      
+                <div id="n2">
+                <h1> <b> {{mostrarNombreApellido}} </b></h1>
+                <p><b>Email:</b> {{email}} </p>
+                <p><b>Fecha de nacimiento:</b> 01/05/1996 </p>
+                <p><b>Teléfono:</b> {{telefono}} </p>
+                <p><b>Ciudad:</b> {{ciudad}} </p>
+                <p> Trabajando en <b>{{trabajo}}</b></p>
+                </div>
+          
+                <div id="n3">
+                  <button class = "botonColor" type="submit" @click = "Seguir(opcion)" :style = color> {{opcion}} </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div id="C2" class="fondoCuerpo">
+            <div id="C2" class="fondoCuerpo">
               <h4>Publicado hace una semana </h4>
               <img class="foto2" src="imagenes/bq9db41.jpeg" alt="Imagen de callejon en Tokyod "><br>
               
@@ -61,7 +63,7 @@
                 <img src="https://cdn.jsdelivr.net/gh/googlei18n/noto-emoji/svg/emoji_u1f307.svg" width="15"> 
                 <img src= "https://cdn.jsdelivr.net/gh/googlei18n/noto-emoji/svg/emoji_u2728.svg" width="15"></small></p>
               <p><small><b>Kathleen J Rennie</b> ¡Esta foto de Tokio es simplemente espectacular! Me trae tantos recuerdos.</small></p>
-                           
+                          
               <div class="der-izq">
                 <small><label id="listado"></label></small> 
                 <div id = "btnEliminar" onclick="eliminarComentario()"></div>
@@ -73,17 +75,26 @@
               <input class = "CajaComentario" id="txtComentario" type="text" placeholder = "Deja tu comentario..." required>
               <button class= "botonColor" id="btnComentar" type="submit"> Comentar </button><br><br>
               </form>     
-          </div>
+            </div>
       
-          <div id="C3" class="fondoCuerpo">
+            <div id="C3" class="fondoCuerpo">
               <h2>Sobre mí</h2>
               <p>¡Hola a todos! Soy Jane, y actualmente vivo en la vibrante y emocionante ciudad de Tokio, Japón. Me encanta capturar la esencia de la vida urbana a través de mi lente, explorando el contraste entre la arquitectura moderna y las tradiciones centenarias que conviven en esta metrópolis
-                única. Desde rascacielos deslumbrantes y calles bulliciosas hasta templos serenos y jardines tranquilos, encuentro inspiración en cada rincón de esta increíble ciudad.</p>
-          </div> 
+              única. Desde rascacielos deslumbrantes y calles bulliciosas hasta templos serenos y jardines tranquilos, encuentro inspiración en cada rincón de esta increíble ciudad.</p>
+            </div> 
         </div>
         
-      </div> 
-    </div> 
+      </div>
+
+      </div>
+    </div>   
     
-   </body> 
+    <!-- Import App -->
+    <script src="./globo.js"></script>
+
+    <!-- Mount App -->
+    <script>
+      const mountedApp = app.mount('#app')
+    </script>
+  </body> 
 </html>
