@@ -43,9 +43,7 @@
                 <p> Trabajando en <b>{{trabajo}}</b></p>
                 </div>
           
-                <div id="n3">
-                  <button class = "botonColor" type="submit" @click = "Seguir(opcion)" :style = color> {{opcion}} </button>
-                </div>
+                <seguir-usuario></seguir-usuario>
               </div>
             </div>
 
@@ -53,10 +51,7 @@
               <h4>Publicado hace una semana </h4>
               <img class="foto2" src="imagenes/bq9db41.jpeg" alt="Imagen de callejon en Tokyod "><br>
               
-              <div class="der-izq">
-                <button class= "botonMegusta" type="submit" id="btnMeGusta"><b>Me Gusta</b></button>
-                <p><b><label id= "likes">200</label></b> Likes</p>
-              </div> 
+              <boton-meGusta></boton-meGusta>
 
               <p> Comentarios </p>
               <p><small><b>Juan Perez</b> ¡Wow, esa foto de Tokio es impresionante!
@@ -93,6 +88,8 @@
     <script src="./globo.js"></script>
 
     <!-- Mount App -->
+    <script src="componentes/seguirUsuario.js"></script>
+    <script src="componentes/botonMeGusta.js"></script>
     <script>
       const mountedApp = app.mount('#app')
     </script>

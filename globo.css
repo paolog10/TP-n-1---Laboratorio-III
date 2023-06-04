@@ -141,6 +141,10 @@ body{
     margin-left: 10vw;
     width: 30vw;
 }
-
+.botonDesabilitado {
+    background-color:  gainsboro;
+    color:rgb(122, 119, 119);
+    cursor: not-allowed;
+}
 
 

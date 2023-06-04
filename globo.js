@@ -8,10 +8,7 @@ const app = Vue.createApp({
       telefono: "918-936-9585",
       ciudad: "Tokyo, Japón",
       trabajo: "Lawn N",
-      desabilitar: false,
       seleccion: 0,
-      opcion: "Seguir",
-      color: {backgroundColor: "rgb(3, 81, 250"},
     }
   },
   computed:{
@@ -21,18 +18,7 @@ const app = Vue.createApp({
   },
 
   methods:{
-    Seguir(opcion){
-      if(opcion == "Seguir"){
-        this.opcion = "Dejar de seguir",
-        this.color = {backgroundColor: "rgb(195, 0, 255)"}
-
-      }
-      else{
-        this.opcion = "Seguir",
-        this.color = {backgroundColor: "rgb(3, 81, 250)"}
-      }
-
-    }
+    
   }
 })
 
