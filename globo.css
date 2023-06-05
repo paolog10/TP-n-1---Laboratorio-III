@@ -111,6 +111,7 @@ body{
     width: 7vw;
     font-size: 1vw;
     color: white;
+    cursor: pointer;
 }
 
 .CajaUsuario {
@@ -145,6 +146,20 @@ body{
     background-color:  gainsboro;
     color:rgb(122, 119, 119);
     cursor: not-allowed;
+}
+.notaAlPie{
+    color: red;
+    font-weight: bolder;
+  }
+.botonEliminarComentario{
+    border: none;
+    padding: 0.5vw 0.5vw;
+    background-color: red; 
+    border-radius: 0.5vw; 
+    width: 10vw;
+    font-size: 1vw;
+    color: white;
+    cursor: pointer;
 }
 
 

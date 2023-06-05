@@ -19,8 +19,8 @@
 
         <div id="caja1" > 
           <img class ="logo" src = "imagenes/undefined - Imgur.png">
-          <form>
-          <input class= "CajaUsuario" id="txtUsuario" type="text" placeholder="Ingresa tu usuario..." required>
+          <form  @submit.prevent = "agregarComentario">
+          <input class= "CajaUsuario" id="txtUsuario" type="text" v-model = "usuario" placeholder="Ingresa tu usuario..." required>
           </form>
         </div>
 
@@ -60,15 +60,21 @@
               <p><small><b>Kathleen J Rennie</b> ¡Esta foto de Tokio es simplemente espectacular! Me trae tantos recuerdos.</small></p>
                           
               <div class="der-izq">
-                <small><label id="listado"></label></small> 
-                <div id = "btnEliminar" onclick="eliminarComentario()"></div>
+                <small>
+                  <p v-for = "(texto, indice) in textos" :key = "indice"> 
+                    <b>{{texto.usuario}}</b> {{texto.comentario}} 
+                    <button class= "botonEliminarComentario" @click="eliminarComentario(indice)">Eliminar comentario</button>
+                  </p>
+                </small> 
+                <!--<div id = "btnEliminar"></div>--> 
               </div>           
-
+              
               <h3><b><div id ="aviso"></div></b></h3>
-
-              <form>
-              <input class = "CajaComentario" id="txtComentario" type="text" placeholder = "Deja tu comentario..." required>
-              <button class= "botonColor" id="btnComentar" type="submit"> Comentar </button><br><br>
+              
+              <form  @submit.prevent = "agregarComentario">
+                <input class = "CajaComentario" id="txtComentario" type="text" v-model = "comentario" placeholder = "Deja tu comentario...">
+                <button class= "botonColor" id="btnComentar" type="submit"> Comentar </button><br><br>
+                <p v-show="comentarioFaltanDatos" class="notaAlPie">Error, verifique datos!</p>
               </form>     
             </div>
       

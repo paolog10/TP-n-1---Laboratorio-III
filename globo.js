@@ -9,6 +9,11 @@ const app = Vue.createApp({
       ciudad: "Tokyo, Japón",
       trabajo: "Lawn N",
       seleccion: 0,
+
+      comentario: "",
+      usuario: "",
+      textos: [],
+      comentarioFaltanDatos: false,
     }
   },
   computed:{
@@ -18,7 +23,25 @@ const app = Vue.createApp({
   },
 
   methods:{
+    agregarComentario(){
+      if (this.usuario === '' || this.comentario === '') {
+        this.comentarioFaltanDatos = true
+        return  
+      }
+
+      this.textos.push({
+        comentario: this.comentario,
+        usuario: this.usuario
+      })
+      
+      //restart variables
+      this.usuario = ''
+      this.comentario = ''
+    },
     
+    eliminarComentario(indice) {
+      this.textos = this.textos.filter((value, index) => index !== indice);
+    },
   }
 })
 
