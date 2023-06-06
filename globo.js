@@ -13,7 +13,8 @@ const app = Vue.createApp({
       comentario: "",
       usuario: "",
       textos: [],
-      comentarioFaltanDatos: false,
+      aviso: '',
+      ver: ''
     }
   },
   computed:{
@@ -24,24 +25,47 @@ const app = Vue.createApp({
 
   methods:{
     agregarComentario(){
-      if (this.usuario === '' || this.comentario === '') {
-        this.comentarioFaltanDatos = true
-        return  
-      }
+      if (this.usuario.trim() === '' || this.comentario.trim() === '') {
+        if(this.comentario.trim() === '' && this.usuario.trim() === ''){
+          this.aviso = "¡¡Ingrese usuario y comentario!!";
+          return
+        }
+        if(this.comentario.trim() === ''){
+          this.aviso = "¡¡Ingrese un comentario!!";
+        }
+        if(this.usuario.trim() === ''){
+          this.aviso = "¡¡Ingrese un usuario!!";
+        }
 
-      this.textos.push({
-        comentario: this.comentario,
-        usuario: this.usuario
-      })
+      }else{
+        this.aviso = "";
+
+        this.textos.push({
+          comentario: this.comentario,
+          usuario: this.usuario
+        })
       
-      //restart variables
-      this.usuario = ''
-      this.comentario = ''
+        //restart variables
+        //this.usuario = ''
+        this.comentario = ''
+      }
     },
     
-    eliminarComentario(indice) {
-      this.textos = this.textos.filter((value, index) => index !== indice);
+    eliminarComentario(indice, ver){
+
+      this.textos[indice] = ""
+
+      if(ver == ""){
+        this.ver = {display: "none"}
+        return
+      }
+      else{
+        this.ver = ""
+      }
     },
+    /*eliminarComentario(indice) {
+      this.textos = this.textos.filter((value, index) => index !== indice);
+    },*/
   }
 })
 

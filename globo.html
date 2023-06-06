@@ -63,13 +63,13 @@
                 <small>
                   <p v-for = "(texto, indice) in textos" :key = "indice"> 
                     <b>{{texto.usuario}}</b> {{texto.comentario}} 
-                    <button class= "botonEliminarComentario" @click="eliminarComentario(indice)">Eliminar comentario</button>
+                    <button class= "botonEliminarComentario" :style = "ver" @click="eliminarComentario(indice, ver)">Eliminar comentario</button>
                   </p>
                 </small> 
                 <!--<div id = "btnEliminar"></div>--> 
               </div>           
               
-              <h3><b><div id ="aviso"></div></b></h3>
+              <h3><b><div id ="aviso">{{aviso}}</div></b></h3>
               
               <form  @submit.prevent = "agregarComentario">
                 <input class = "CajaComentario" id="txtComentario" type="text" v-model = "comentario" placeholder = "Deja tu comentario...">
