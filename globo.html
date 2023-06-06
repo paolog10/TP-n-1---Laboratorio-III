@@ -37,7 +37,7 @@
                 <div id="n2">
                 <h1> <b> {{mostrarNombreApellido}} </b></h1>
                 <p><b>Email:</b> {{email}} </p>
-                <p><b>Fecha de nacimiento:</b> 01/05/1996 </p>
+                <p><b>Fecha de nacimiento:</b> {{fechaNacimiento}} </p>
                 <p><b>Teléfono:</b> {{telefono}} </p>
                 <p><b>Ciudad:</b> {{ciudad}} </p>
                 <p> Trabajando en <b>{{trabajo}}</b></p>
@@ -59,21 +59,20 @@
                 <img src= "https://cdn.jsdelivr.net/gh/googlei18n/noto-emoji/svg/emoji_u2728.svg" width="15"></small></p>
               <p><small><b>Kathleen J Rennie</b> ¡Esta foto de Tokio es simplemente espectacular! Me trae tantos recuerdos.</small></p>
                           
-              <div class="der-izq">
-                <small>
-                  <p v-for = "(texto, indice) in textos" :key = "indice"> 
-                    <b>{{texto.usuario}}</b> {{texto.comentario}} 
-                    <button class= "botonEliminarComentario" :style = "ver" @click="eliminarComentario(indice, ver)">Eliminar comentario</button>
-                  </p>
-                </small> 
-                <!--<div id = "btnEliminar"></div>--> 
-              </div>           
+              <small>
+                <p v-for = "(texto, indice) in textos" :key = "indice"> 
+                  <b>{{texto.usuario}}</b> {{texto.comentario}} 
+                  <button class= "botonEliminarComentario" :style = "ver" @click="eliminarComentario(indice, ver)">Eliminar comentario</button>
+                </p>
+              </small> 
+              <!--<div id = "btnEliminar"></div>-->            
               
-              <h3><b><div id ="aviso">{{aviso}}</div></b></h3>
+              <!--<h3><b><div id ="aviso">{{aviso}}</div></b></h3>-->
               
               <form  @submit.prevent = "agregarComentario">
                 <input class = "CajaComentario" id="txtComentario" type="text" v-model = "comentario" placeholder = "Deja tu comentario...">
                 <button class= "botonColor" id="btnComentar" type="submit"> Comentar </button><br><br>
+                <p class="notaAlPie">{{aviso}}</p><br>
                 <!--<p v-show="comentarioFaltanDatos" class="notaAlPie">Error, verifique datos!</p>-->
               </form>     
             </div>
