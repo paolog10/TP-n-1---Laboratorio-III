@@ -4,7 +4,7 @@ app.component('boton-megusta', {
   `
   <div class="der-izq">
     <button class= "botonMegusta" type="submit"  
-    @click = "Sumar()" 
+    @click = "sumarLike()" 
     :disabled = "desabilitar" 
     :class = "{botonDesabilitado: desabilitar}"><b>Me Gusta</b></button>
     <p><b>{{contador}}</label></b> Likes</p>
@@ -27,7 +27,7 @@ app.component('boton-megusta', {
   },
 
   methods: {
-    Sumar(){
+    sumarLike(){
       this.contador += 1;
       this.desabilitar = true; 
       return;         
