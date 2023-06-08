@@ -27,14 +27,14 @@ const app = Vue.createApp({
     agregarComentario(){
       if (this.usuario.trim() === '' || this.comentario.trim() === '') {
         if(this.comentario.trim() === '' && this.usuario.trim() === ''){
-          this.aviso = "¡¡Ingrese usuario y comentario!!";
+          this.aviso = "Error, ingrese usuario y comentario!";
           return
         }
         if(this.comentario.trim() === ''){
-          this.aviso = "¡¡Ingrese un comentario!!";
+          this.aviso = "Error, ingrese un comentario!";
         }
         if(this.usuario.trim() === ''){
-          this.aviso = "¡¡Ingrese un usuario!!";
+          this.aviso = "Error, ingrese un usuario!";
         }
 
       }else{
