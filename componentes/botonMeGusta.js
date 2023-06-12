@@ -10,19 +10,11 @@ app.component('boton-megusta', {
     <p><b>{{contador}}</label></b> Likes</p>
   </div>
   `,
-  props: {
-
-  },
 
   data() {
     return{
       desabilitar: false,
       contador: 200,
-      /*botonDesabilitado:{
-        backgroundColor: "red",
-        color: "rgb(122, 119, 119)",
-        cursor: "not-allowed"
-      }*/
     }
   },
 
@@ -36,12 +28,4 @@ app.component('boton-megusta', {
 
 })
 
-
-/*
-.botonDesabilitado {
-  background-color:  gainsboro;
-  color:rgb(122, 119, 119);
-  cursor: not-allowed;
-}
-*/
 

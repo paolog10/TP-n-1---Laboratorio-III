@@ -20,7 +20,7 @@
         <div id="caja1" > 
           <img class ="logo" src = "imagenes/undefined - Imgur.png">
           <form  @submit.prevent = "agregarComentario">
-          <input class= "CajaUsuario" id="txtUsuario" type="text" v-model = "usuario" @keypress="" placeholder="Ingresa tu usuario..." required>
+          <input class= "CajaUsuario" type="text" v-model = "usuario" placeholder="Ingresa tu usuario..." required>
           </form>
         </div>
         
@@ -61,19 +61,15 @@
                           
               <small>
                 <p v-for = "(texto, indice) in textos" :key = "indice"> 
-                  <b>{{texto.usuario}}</b> {{texto.comentario}} 
-                  <button class= "botonEliminarComentario" :style = "ver" @click="eliminarComentario(indice, ver)">Eliminar</button><br><br>
+                  <b :style ="{color:'blue'}">{{texto.usuario}}</b> {{texto.comentario}} 
+                  <button class= "botonEliminarComentario" @click="eliminarComentario(indice)">Eliminar</button>
                 </p>
-              </small> 
-              <!--<div id = "btnEliminar"></div>-->            
-              
-              <!--<h3><b><div id ="aviso">{{aviso}}</div></b></h3>-->
+              </small><br><br>
               
               <form  @submit.prevent = "agregarComentario">
-                <input class = "CajaComentario" id="txtComentario" type="text" v-model = "comentario" placeholder = "Deja tu comentario...">
+                <input class = "CajaComentario" type="text" v-model = "comentario" placeholder = "Deja tu comentario...">
                 <button class= "botonColor" id="btnComentar" type="submit"> Comentar </button><br>
                 <p class="notaAlPie">{{aviso}}</p><br>
-                <!--<p v-show="comentarioFaltanDatos" class="notaAlPie">Error, verifique datos!</p>-->
               </form>     
             </div>
       

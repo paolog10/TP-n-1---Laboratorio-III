@@ -2,7 +2,7 @@ const app = Vue.createApp({
   data() {
     return {
       nombre: "Jane",
-      apellido: "Cone",
+      apellido: "Doe",
       email: "jane_doe@email.com",
       fechaNacimiento: "01/05/1996",
       telefono: "918-936-9585",
@@ -14,7 +14,6 @@ const app = Vue.createApp({
       usuario: "",
       textos: [],
       aviso: '',
-      ver: ''
     }
   },
   computed:{
@@ -46,7 +45,6 @@ const app = Vue.createApp({
         })
       
         //restart variables
-        //this.usuario = ''
         this.comentario = ''
       }
     },

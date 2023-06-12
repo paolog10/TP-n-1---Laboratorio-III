@@ -6,15 +6,14 @@ app.component('seguir-usuario', {
     <button class = "botonColor" type="submit" @click = "Seguir(opcion)" :style = color> {{opcion}} </button>
   </div>
   `,
-  props: {
 
-  },
   data() {
     return{
       opcion: "Seguir",
       color: {backgroundColor: "rgb(3, 81, 250"},
     }
   },
+  
   methods: {
     Seguir(opcion){
       if(opcion == "Seguir"){
